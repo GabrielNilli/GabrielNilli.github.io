@@ -1,11 +1,18 @@
-import "./App.css";
+// =================================
+//  IMPORTS
+// =================================
+import { Navigate, Route, Routes } from "react-router";
 
-function App() {
+// =================================
+//  COMPONENT
+// =================================ai
+export default function App() {
+  // =================================
+  //  RENDER
+  // =================================
   return (
-    <>
+    <Routes>
       <p>CIAONE HOME PAGINONE</p>
-    </>
+    </Routes>
   );
 }
-
-export default App;
