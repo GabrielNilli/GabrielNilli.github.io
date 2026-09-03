@@ -6,13 +6,13 @@ import { useNavigate } from "react-router";
 // =================================
 //  COMPONENT
 // =================================
-export default function AboutPage() {
+export default function WorksPage() {
   // =================================
   //  RENDER
   // =================================
   return (
     <>
-      <p>ABOUT PAGE</p>
+      <p>WORKS PAGE</p>
     </>
   );
 }
