@@ -32,7 +32,7 @@ const variantStyles: Record<
       active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#121212]
     `,
     selected: `
-      bg-[#F4EFE6] border-[#121212] text-black
+      bg-black border-[#121212] text-[#F4EFE6]
       translate-x-0.5 translate-y-0.5 shadow-[1px_1px_0px_#121212]
     `,
   },

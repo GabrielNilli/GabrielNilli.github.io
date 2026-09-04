@@ -1,7 +1,7 @@
 // =================================
 //  IMPORTS
 // =================================
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import ExperiencesPage from "./pages/ExperiencesPage";
 import PassionsPage from "./pages/PassionsPage";
@@ -30,7 +30,6 @@ export default function App() {
         <Route path="/skills" element={<SkillsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/works" element={<WorksPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );
