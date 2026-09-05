@@ -11,7 +11,7 @@ const experiences: Experience[] = [
     period: "2024 — NOW",
     role: "FULLSTACK DEVELOPER",
     company: "Orbital Waves",
-    technologies: ["REACT", "LARAVE", "HUBSPOT", "PHP"],
+    technologies: ["REACT", "VUE", "LARAVEL", "HUBSPOT", "PHP", "SQL", "NoSQL"],
     responsibilities: [
       "Developed advanced integrations with HubSpot using PHP and the Laravel framework.",
       "Built custom UI components for HubSpot leveraging React.",

@@ -9,6 +9,7 @@ import ContactPage from "./pages/ContactPage";
 import SkillsPage from "./pages/SkillsPage";
 import AboutPage from "./pages/AboutPage";
 import WorksPage from "./pages/WorksPage";
+import WorkDetailsPage from "./pages/WorkDetailsPage";
 import HomePage from "./pages/HomePage";
 
 import Layout from "./components/layout/Layout";
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/skills" element={<SkillsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/works" element={<WorksPage />} />
+        <Route path="/works/:projectId" element={<WorkDetailsPage />} />
       </Route>
     </Routes>
   );
