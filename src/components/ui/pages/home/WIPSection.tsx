@@ -25,6 +25,10 @@ const currentWIP: WIP[] = [
   },
   {
     id: 3,
+    name: "Nameless note App",
+  },
+  {
+    id: 4,
     name: "More Ideas Incoming...",
   },
 ];

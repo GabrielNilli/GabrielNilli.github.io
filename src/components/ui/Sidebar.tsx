@@ -34,7 +34,7 @@ export default function Sidebar({ theme, onThemeToggle }: SidebarProps) {
   //  RENDER
   // =================================
   return (
-    <aside className="w-64 min-h-screen border-r-4 flex flex-col justify-between p-4 bg-[var(--bg-color)] border-[var(--border-color)]">
+    <aside className="fixed inset-y-0 left-0 z-50 flex h-screen w-64 flex-col justify-between border-r-4 border-[var(--border-color)] bg-[var(--bg-color)] p-4">
       {/* Nav buttons */}
       <nav className="flex flex-col gap-6">
         {links.map((link) => (

@@ -29,12 +29,12 @@ export default function Layout() {
   //  RENDER
   // =================================
   return (
-    <div className="flex min-h-screen w-full">
+    <div className="min-h-screen w-full">
       <Sidebar
         theme={theme}
         onThemeToggle={() => setTheme((current) => (current === "light" ? "dark" : "light"))}
       />
-      <main className="flex-1 p-6 overflow-y-auto">
+      <main className="min-h-screen ml-64 p-6">
         <Outlet />
       </main>
     </div>
