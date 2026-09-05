@@ -66,13 +66,13 @@ export default function InfoSection() {
       <div className="font-bold text-6xl">
         <span>
           GABRIEL
-          <span className="text-[#D32F2F]"> NILLI</span>
+          <span className="text-[var(--accent-color)]"> NILLI</span>
         </span>
       </div>
 
       <div className="font-bold text-4xl">
         <span>I'M </span>
-        <span className="text-[#D32F2F]">
+        <span className="text-[var(--accent-color)]">
           {text}
           <span className="animate-pulse">|</span>
         </span>
@@ -80,9 +80,9 @@ export default function InfoSection() {
 
       <div className="font-bold text-3xl">
         <span>
-          I BUILD <span className="text-[#D32F2F]">INTERFACES</span>,
-          <span className="text-[#D32F2F]"> APPLICATIONS</span> AND <br />
-          <span className="text-[#D32F2F]">TINKER WITH SYSTEMS</span> THAT
+          I BUILD <span className="text-[var(--accent-color)]">INTERFACES</span>,
+          <span className="text-[var(--accent-color)]"> APPLICATIONS</span> AND <br />
+          <span className="text-[var(--accent-color)]">TINKER WITH SYSTEMS</span> THAT
           INSPIRE ME.
         </span>
       </div>

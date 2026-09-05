@@ -1,15 +1,9 @@
 // =================================
 //  IMPORTS
 // =================================
-import { ProjectCard } from "./sections/projects-section/ProjectCard";
-import {
-  Server,
-  Trophy,
-  Dices,
-  Smartphone,
-  LucideIcon,
-  NotebookPen,
-} from "lucide-react";
+import ProjectCard from "./sections/projects-section/ProjectCard";
+
+import { Server, Trophy, Dices, LucideIcon, NotebookPen } from "lucide-react";
 
 // =================================
 //  TYPES
@@ -55,7 +49,7 @@ const currentProjects: Project[] = [
     description:
       "I have plenty of sources of inspiration that will be added to the projects over time.",
     icon: NotebookPen,
-    tags: ["MISTERY"],
+    tags: ["MISTERY", "STAY TUNED"],
   },
 ];
 

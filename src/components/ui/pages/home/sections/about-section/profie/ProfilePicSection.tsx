@@ -16,7 +16,7 @@ export default function ProfilePicSection() {
   // =================================
   return (
     <>
-      <div className="border-6 size-64 shadow-[3px_3px_0px_#121212]">
+      <div className="border-6 size-64 border-[var(--border-color)] shadow-[6px_6px_0px_var(--shadow-color)]">
         <img src={ProfilePic} />
       </div>
     </>

@@ -2,6 +2,7 @@
 //  IMPORTS
 // =================================
 import { NavLink } from "react-router-dom";
+import { Moon, Sun } from "lucide-react";
 
 import GenericButton from "./GenericButton";
 
@@ -23,12 +24,17 @@ const links = [
 // =================================
 //  COMPONENT
 // =================================
-export default function Sidebar() {
+interface SidebarProps {
+  theme: "light" | "dark";
+  onThemeToggle: () => void;
+}
+
+export default function Sidebar({ theme, onThemeToggle }: SidebarProps) {
   // =================================
   //  RENDER
   // =================================
   return (
-    <aside className="w-64 min-h-screen border-r-4 flex flex-col justify-between p-4 bg-[#f2ead9]">
+    <aside className="w-64 min-h-screen border-r-4 flex flex-col justify-between p-4 bg-[var(--bg-color)] border-[var(--border-color)]">
       {/* Nav buttons */}
       <nav className="flex flex-col gap-6">
         {links.map((link) => (
@@ -52,7 +58,19 @@ export default function Sidebar() {
       </nav>
 
       {/* Sidebar bottom button */}
-      <div className="mt-auto pt-6">
+      <div className="mt-auto pt-6 flex flex-col gap-4">
+        <GenericButton
+          variant="secondary"
+          className="w-full"
+          onClick={onThemeToggle}
+        >
+          {theme === "light" ? (
+            <Moon size={18} aria-hidden="true" />
+          ) : (
+            <Sun size={18} aria-hidden="true" />
+          )}
+          <span className="ml-2">Change Theme</span>
+        </GenericButton>
         <a
           href={BasePortfolio}
           download="Gabriel Nilli Portfolio"
@@ -66,10 +84,10 @@ export default function Sidebar() {
               <span>CLICK HERE FOR THE</span>
 
               {/* BORING brutalist effect */}
-              <span className="relative inline-block my-0.5 px-2 py-0.5 bg-[#121212] text-[#D32F2F] -rotate-2 select-none">
+              <span className="relative inline-block my-0.5 px-2 py-0.5 bg-[var(--text-color)] text-[var(--accent-color)] -rotate-2 select-none">
                 BORING
                 {/* Censoring bar */}
-                <span className="absolute inset-x-0 top-1/2 h-[3px] bg-[#F4EFE6] -translate-y-1/2 rotate-6" />
+                <span className="absolute inset-x-0 top-1/2 h-[3px] bg-[var(--button-text-color)] -translate-y-1/2 rotate-6" />
               </span>
 
               <span>BASE PORTFOLIO</span>

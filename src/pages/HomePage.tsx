@@ -15,16 +15,19 @@ export default function HomePage() {
   // =================================
   return (
     <>
-      <div className="grid gap-8">
-        <AboutSection />
-        <ProjectSection />
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="md:col-span-3 border-2 border-black">
-            <WIPSection />
-          </div>
+      <div className="home-page">
+        <div className="home-page__content h-full grid grid-rows-[auto_auto_minmax(0,1fr)] gap-8">
+          <AboutSection />
+          <ProjectSection />
 
-          <div className="md:col-span-1 border-2 border-black">
-            <SocialsSection />
+          <div className="grid min-h-0 grid-cols-1 gap-4 md:grid-cols-4">
+            <div className="h-full md:col-span-3">
+              <WIPSection />
+            </div>
+
+            <div className="h-full md:col-span-1">
+              <SocialsSection />
+            </div>
           </div>
         </div>
       </div>

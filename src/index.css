@@ -5,9 +5,6 @@
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
-
-  /* colors */
-  --bg-color: #f2ead9;
 }
 
 html,
@@ -16,4 +13,77 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+:root {
+  --bg-color: #f2ead9;
+  --surface-color: #f3efe4;
+  --surface-muted-color: #d9d5c9;
+  --text-color: #171412;
+  --on-ink-color: #f4efe6;
+  --border-color: #171412;
+  --shadow-color: #171412;
+  --button-text-color: #f4efe6;
+  --accent-color: #d32f2f;
+  --status-color: #82b85a;
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #1b1917;
+  --surface-color: #292522;
+  --surface-muted-color: #3a342f;
+  --text-color: #f4efe6;
+  --on-ink-color: #171412;
+  --border-color: #f4efe6;
+  --shadow-color: #050403;
+  --button-text-color: #f4efe6;
+  --accent-color: #ef5350;
+  --status-color: #9acb70;
+}
+
+/* Home only: its content occupies the space inside Layout's p-6 (1.5rem top
+   and bottom) and never creates a document scrollbar. */
+.home-page {
+  box-sizing: border-box;
+  height: calc(100dvh - 3rem);
+  padding-right: 6px;
+  padding-bottom: 6px;
+  overflow: hidden;
+}
+
+.home-page__content {
+  transform-origin: top left;
+}
+
+/* Keep the complete composition visible on short desktop displays. Width is
+   compensated so scaling does not leave unused horizontal space. */
+@media (max-height: 950px) {
+  .home-page__content {
+    width: 111.112%;
+    transform: scale(0.9);
+  }
+}
+
+@media (max-height: 800px) {
+  .home-page__content {
+    width: 133.334%;
+    transform: scale(0.75);
+  }
+}
+
+@media (max-height: 650px) {
+  .home-page__content {
+    width: 166.667%;
+    transform: scale(0.6);
+  }
+}
+
+@media (max-height: 500px) {
+  .home-page__content {
+    width: 222.223%;
+    transform: scale(0.45);
+  }
 }

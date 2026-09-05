@@ -26,50 +26,50 @@ const variantStyles: Record<
 > = {
   primary: {
     base: `
-      bg-[#D32F2F] border-[#121212] text-white
-      shadow-[3px_3px_0px_#121212]
-      hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#121212]
-      active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#121212]
+      bg-[var(--accent-color)] border-[var(--border-color)] text-white
+      shadow-[3px_3px_0px_var(--shadow-color)]
+      hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_var(--shadow-color)]
+      active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--shadow-color)]
     `,
     selected: `
-      bg-black border-[#121212] text-[#F4EFE6]
-      translate-x-0.5 translate-y-0.5 shadow-[1px_1px_0px_#121212]
+      bg-[var(--text-color)] border-[var(--border-color)] text-[var(--on-ink-color)]
+      translate-x-0.5 translate-y-0.5 shadow-[1px_1px_0px_var(--shadow-color)]
     `,
   },
   secondary: {
     base: `
-      bg-[#F4EFE6] border-[#121212] text-[#121212]
-      shadow-[3px_3px_0px_#121212]
-      hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#121212]
-      active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#121212]
+      bg-[var(--surface-color)] border-[var(--border-color)] text-[var(--text-color)]
+      shadow-[3px_3px_0px_var(--shadow-color)]
+      hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_var(--shadow-color)]
+      active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--shadow-color)]
     `,
     selected: `
-      bg-[#D32F2F] border-[#121212] text-white
-      translate-x-0.5 translate-y-0.5 shadow-[1px_1px_0px_#121212]
+      bg-[var(--accent-color)] border-[var(--border-color)] text-white
+      translate-x-0.5 translate-y-0.5 shadow-[1px_1px_0px_var(--shadow-color)]
     `,
   },
   ghost: {
     base: `
-      bg-transparent border-transparent text-[#121212]
+      bg-transparent border-transparent text-[var(--text-color)]
       shadow-none
-      hover:text-[#D32F2F]
-      active:text-[#D32F2F]
+      hover:text-[var(--accent-color)]
+      active:text-[var(--accent-color)]
     `,
     selected: `
-      bg-transparent border-transparent text-[#D32F2F]
+      bg-transparent border-transparent text-[var(--accent-color)]
       shadow-none underline underline-offset-4
     `,
   },
   inverted: {
     base: `
-      bg-[#121212] border-[#121212] text-[#F4EFE6]
-      shadow-[3px_3px_0px_#D32F2F]
-      hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#D32F2F]
-      active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#D32F2F]
+      bg-[var(--text-color)] border-[var(--text-color)] text-[var(--on-ink-color)]
+      shadow-[3px_3px_0px_var(--accent-color)]
+      hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_var(--accent-color)]
+      active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--accent-color)]
     `,
     selected: `
-      bg-[#121212] border-[#D32F2F] text-[#D32F2F]
-      translate-x-0.5 translate-y-0.5 shadow-[1px_1px_0px_#D32F2F]
+      bg-[var(--text-color)] border-[var(--accent-color)] text-[var(--accent-color)]
+      translate-x-0.5 translate-y-0.5 shadow-[1px_1px_0px_var(--accent-color)]
     `,
   },
 };
