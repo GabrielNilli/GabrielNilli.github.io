@@ -1,21 +1,17 @@
 // =================================
 //  IMPORTS
 // =================================
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type {
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+  ReactNode,
+} from "react";
+import { Link } from "react-router";
 
 // =================================
 //  TYPE
 // =================================
 type GenericButtonVariant = "primary" | "secondary" | "ghost" | "inverted";
-
-// =================================
-//  INTERFACE
-// =================================
-interface GenericButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  variant?: GenericButtonVariant;
-  selected?: boolean;
-}
 
 // =================================
 //  VARIANTS
@@ -75,16 +71,17 @@ const variantStyles: Record<
 };
 
 // =================================
-//  COMPONENT
+//  HELPERS
 // =================================
-export default function GenericButton({
-  children,
-  variant = "primary",
-  selected = false,
-  className = "",
-  type = "button",
-  ...props
-}: GenericButtonProps) {
+function isProtocolLink(href: string) {
+  return /^(mailto:|tel:|https?:\/\/)/.test(href);
+}
+
+function buildClassName(
+  variant: GenericButtonVariant,
+  selected: boolean,
+  className: string,
+) {
   const styles = variantStyles[variant];
 
   const baseClasses = `
@@ -94,24 +91,79 @@ export default function GenericButton({
     transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50
   `;
 
-  const combinedClassName = [
-    baseClasses,
-    selected ? styles.selected : styles.base,
-    className,
-  ]
+  return [baseClasses, selected ? styles.selected : styles.base, className]
     .join(" ")
     .replace(/\s+/g, " ")
     .trim();
+}
 
-  // =================================
-  //  RENDER
-  // =================================
+// =================================
+//  INTERFACE
+// =================================
+interface GenericButtonBaseProps {
+  children: ReactNode;
+  variant?: GenericButtonVariant;
+  selected?: boolean;
+  className?: string;
+  href?: string;
+}
+
+type GenericButtonProps = GenericButtonBaseProps &
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className"> &
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "className" | "href">;
+
+// =================================
+//  COMPONENT
+// =================================
+export default function GenericButton({
+  children,
+  variant = "primary",
+  selected = false,
+  className = "",
+  href,
+  type = "button",
+  ...props
+}: GenericButtonProps) {
+  const combinedClassName = buildClassName(variant, selected, className);
+
+  // Mailto / tel / external URL -> plain native anchor
+  if (href && isProtocolLink(href)) {
+    const isHttp = href.startsWith("http");
+    return (
+      <a
+        href={href}
+        target={isHttp ? "_blank" : undefined}
+        rel={isHttp ? "noreferrer" : undefined}
+        aria-pressed={selected}
+        className={combinedClassName}
+        {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  // Internal route -> react-router Link
+  if (href) {
+    return (
+      <Link
+        to={href}
+        aria-current={selected ? "page" : undefined}
+        className={combinedClassName}
+        {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  // No href -> plain button, same as prima
   return (
     <button
       type={type}
       aria-pressed={selected}
       className={combinedClassName}
-      {...props}
+      {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
       {children}
     </button>
