@@ -42,12 +42,12 @@ export default function WIPSection() {
   // =================================
   return (
     <>
-      <div className="h-[calc(100%-3px)] border-3 p-6 border-[var(--border-color)] shadow-[3px_3px_0px_var(--shadow-color)]">
-        <h2 className="mb-10 font-sans text-4xl font-extrabold leading-tight text-[var(--text-color)]">
+      <div className="h-auto border-3 p-4 border-[var(--border-color)] shadow-[3px_3px_0px_var(--shadow-color)] md:h-[calc(100%-3px)] md:p-6">
+        <h2 className="mb-6 font-sans text-2xl font-extrabold leading-tight text-[var(--text-color)] sm:text-3xl md:mb-10 md:text-4xl">
           CURRENTLY WORKING ON...
         </h2>
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           {currentWIP.map((wip) => (
             <WIPCard key={wip.id} title={wip.name} />
           ))}

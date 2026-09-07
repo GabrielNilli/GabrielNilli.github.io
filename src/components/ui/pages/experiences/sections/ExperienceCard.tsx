@@ -1,7 +1,7 @@
 // =================================
 //  IMPORTS
 // =================================
-import { ChevronRight } from "lucide-react";
+import { Briefcase, ChevronRight } from "lucide-react";
 
 // =================================
 //  TYPES
@@ -25,7 +25,24 @@ interface ExperienceCardProps {
 export default function ExperienceCard({ experience }: ExperienceCardProps) {
   return (
     <article className="relative border-3 border-[var(--border-color)] bg-[var(--surface-muted-color)] p-5 shadow-[5px_5px_0px_var(--shadow-color)] sm:p-6">
-      <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
+      {/* Mobile-only icon + meta row */}
+      <div className="mb-4 flex items-center justify-between gap-3 sm:hidden">
+        <div className="flex items-center gap-3">
+          <span className="flex size-9 shrink-0 items-center justify-center border-2 border-[var(--border-color)] bg-[var(--surface-color)] text-[var(--text-color)]">
+            <Briefcase size={18} strokeWidth={2.5} />
+          </span>
+          <span className="font-sans text-sm font-black tracking-wide text-[var(--text-color)]">
+            {experience.period}
+          </span>
+        </div>
+        {experience.current && (
+          <span className="flex items-center gap-2 border-2 border-[var(--border-color)] bg-[var(--accent-color)] px-3 py-1 font-sans text-xs font-black tracking-wider text-white">
+            <span className="size-2 rounded-full bg-white" />CURRENT
+          </span>
+        )}
+      </div>
+
+      <div className="mb-6 hidden flex-wrap items-start justify-between gap-3 sm:flex">
         <span className="border-2 border-[var(--border-color)] bg-[var(--surface-color)] px-3 py-1 font-sans text-sm font-black tracking-wide text-[var(--text-color)]">
           {experience.period}
         </span>

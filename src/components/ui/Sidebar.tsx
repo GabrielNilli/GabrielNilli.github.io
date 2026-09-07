@@ -5,21 +5,9 @@ import { NavLink } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 
 import GenericButton from "./GenericButton";
+import { navLinks } from "./navLinks";
 
 import BasePortfolio from "./../../files/base-portfolio/base-portfolio.pdf";
-
-// =================================
-//  CONSTS
-// =================================
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/experiences", label: "Experiences" },
-  { to: "/works", label: "Works" },
-  { to: "/skills", label: "Skills" },
-  { to: "/passions", label: "Passions" },
-  { to: "/contact", label: "Contact" },
-];
 
 // =================================
 //  COMPONENT
@@ -34,10 +22,10 @@ export default function Sidebar({ theme, onThemeToggle }: SidebarProps) {
   //  RENDER
   // =================================
   return (
-    <aside className="fixed inset-y-0 left-0 z-50 flex h-screen w-64 flex-col justify-between border-r-4 border-[var(--border-color)] bg-[var(--bg-color)] p-4">
+    <aside className="fixed inset-y-0 left-0 z-50 hidden h-screen w-64 flex-col justify-between border-r-4 border-[var(--border-color)] bg-[var(--bg-color)] p-4 md:flex">
       {/* Nav buttons */}
       <nav className="flex flex-col gap-6">
-        {links.map((link) => (
+        {navLinks.map((link) => (
           <NavLink
             key={link.to}
             to={link.to}

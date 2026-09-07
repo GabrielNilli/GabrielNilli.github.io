@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 import Sidebar from "./../ui/Sidebar";
+import MobileNav from "./../ui/MobileNav";
 
 // =================================
 //  COMPONENT
@@ -34,7 +35,11 @@ export default function Layout() {
         theme={theme}
         onThemeToggle={() => setTheme((current) => (current === "light" ? "dark" : "light"))}
       />
-      <main className="min-h-screen ml-64 p-6">
+      <MobileNav
+        theme={theme}
+        onThemeToggle={() => setTheme((current) => (current === "light" ? "dark" : "light"))}
+      />
+      <main className="min-h-screen p-4 md:ml-64 md:p-6">
         <Outlet />
       </main>
     </div>

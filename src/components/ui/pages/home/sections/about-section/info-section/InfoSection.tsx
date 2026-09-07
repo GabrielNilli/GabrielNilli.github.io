@@ -62,15 +62,15 @@ export default function InfoSection() {
   //  RENDER
   // =================================
   return (
-    <div className="flex flex-col items-center text-center gap-5 py-8">
-      <div className="font-bold text-6xl">
+    <div className="flex flex-col items-center text-center gap-5 py-4 md:py-8">
+      <div className="font-bold text-3xl sm:text-4xl md:text-6xl">
         <span>
           GABRIEL
           <span className="text-[var(--accent-color)]"> NILLI</span>
         </span>
       </div>
 
-      <div className="font-bold text-4xl">
+      <div className="font-bold text-xl sm:text-2xl md:text-4xl">
         <span>I'M </span>
         <span className="text-[var(--accent-color)]">
           {text}
@@ -78,7 +78,7 @@ export default function InfoSection() {
         </span>
       </div>
 
-      <div className="font-bold text-3xl">
+      <div className="font-bold text-lg sm:text-xl md:text-3xl">
         <span>
           I BUILD <span className="text-[var(--accent-color)]">INTERFACES</span>,
           <span className="text-[var(--accent-color)]"> APPLICATIONS</span> AND <br />

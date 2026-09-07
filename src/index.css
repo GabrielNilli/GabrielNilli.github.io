@@ -44,46 +44,61 @@ body {
   --status-color: #9acb70;
 }
 
-/* Home only: its content occupies the space inside Layout's p-6 (1.5rem top
-   and bottom) and never creates a document scrollbar. */
+.mobile-tabs {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mobile-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Home only: on desktop (md and up) its content occupies the space inside
+   Layout's p-6 (1.5rem top and bottom) and never creates a document
+   scrollbar. Below md, Home flows and scrolls like every other page. */
 .home-page {
   box-sizing: border-box;
-  height: calc(100dvh - 3rem);
-  padding-right: 6px;
-  padding-bottom: 6px;
-  overflow: hidden;
 }
 
 .home-page__content {
   transform-origin: top left;
 }
 
-/* Keep the complete composition visible on short desktop displays. Width is
-   compensated so scaling does not leave unused horizontal space. */
-@media (max-height: 950px) {
-  .home-page__content {
-    width: 111.112%;
-    transform: scale(0.9);
+@media (min-width: 768px) {
+  .home-page {
+    height: calc(100dvh - 3rem);
+    padding-right: 6px;
+    padding-bottom: 6px;
+    overflow: hidden;
   }
-}
 
-@media (max-height: 800px) {
-  .home-page__content {
-    width: 133.334%;
-    transform: scale(0.75);
+  /* Keep the complete composition visible on short desktop displays. Width is
+     compensated so scaling does not leave unused horizontal space. */
+  @media (max-height: 950px) {
+    .home-page__content {
+      width: 111.112%;
+      transform: scale(0.9);
+    }
   }
-}
 
-@media (max-height: 650px) {
-  .home-page__content {
-    width: 166.667%;
-    transform: scale(0.6);
+  @media (max-height: 800px) {
+    .home-page__content {
+      width: 133.334%;
+      transform: scale(0.75);
+    }
   }
-}
 
-@media (max-height: 500px) {
-  .home-page__content {
-    width: 222.223%;
-    transform: scale(0.45);
+  @media (max-height: 650px) {
+    .home-page__content {
+      width: 166.667%;
+      transform: scale(0.6);
+    }
+  }
+
+  @media (max-height: 500px) {
+    .home-page__content {
+      width: 222.223%;
+      transform: scale(0.45);
+    }
   }
 }

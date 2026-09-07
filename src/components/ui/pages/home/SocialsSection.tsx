@@ -40,8 +40,8 @@ export default function SocialSection() {
   // =================================
   return (
     <>
-      <div className="h-[calc(100%-3px)] border-3 p-6 border-[var(--border-color)] shadow-[3px_3px_0px_var(--shadow-color)]">
-        <h2 className="mb-4 font-sans text-4xl font-extrabold leading-tight text-[var(--text-color)]">
+      <div className="h-auto border-3 p-4 border-[var(--border-color)] shadow-[3px_3px_0px_var(--shadow-color)] md:h-[calc(100%-3px)] md:p-6">
+        <h2 className="mb-4 font-sans text-2xl font-extrabold leading-tight text-[var(--text-color)] sm:text-3xl md:text-4xl">
           FIND ME ON...
         </h2>
 

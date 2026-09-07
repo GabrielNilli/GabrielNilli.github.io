@@ -2,7 +2,7 @@
 //  IMPORTS
 // =================================
 import { Mail, ArrowUpRight } from "lucide-react";
-import GithubIcon from "../../../icons/GitHubIcon";
+import GithubIcon from "../../../icons/GithubIcon";
 import LinkedinIcon from "../../../icons/LinkedinIcon";
 import type { ContactMethod } from "../data/contact";
 

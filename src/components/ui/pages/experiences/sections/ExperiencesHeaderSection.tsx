@@ -15,7 +15,7 @@ export default function ExperiencesHeaderSection() {
           // CAREER
         </span>
       </div>
-      <h1 className="m-0 font-sans text-5xl font-black leading-none text-[var(--text-color)] sm:text-6xl">
+      <h1 className="m-0 font-sans text-3xl font-black leading-none text-[var(--text-color)] sm:text-6xl">
         EXPERIENCES.
       </h1>
     </header>
