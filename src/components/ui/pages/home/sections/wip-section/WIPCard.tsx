@@ -20,6 +20,11 @@ export default function WIPCard({ title, href }: WIPCardProps) {
     px-3 py-1 text-start font-sans text-lg font-bold uppercase tracking-wide
     text-[var(--text-color)] shadow-[4px_4px_0px_var(--shadow-color)]
     transition-all duration-[120ms] ease-out
+     ${
+       href
+         ? "cursor-pointer hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[2px_2px_0px_var(--shadow-color)]"
+         : "cursor-default opacity-100"
+     }
   `;
 
   // =================================

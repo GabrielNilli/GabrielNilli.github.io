@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowUpRight, Check, Circle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import type { Project } from "../data/projects";
+import ProjectGallery from "@/components/ui/ProjectGallery";
 
 interface WorkDetailsSectionProps {
   project: Project;
@@ -35,6 +36,16 @@ export default function WorkDetailsSection({
           {project.title}
         </h1>
       </header>
+
+      {project.gallery && project.gallery.length > 0 && (
+        <div className="pt-8">
+          <p className="mb-3 font-sans text-xs font-black tracking-[0.2em] text-[var(--accent-color)]">
+            // SCREENSHOTS
+          </p>
+          <ProjectGallery images={project.gallery} />
+        </div>
+      )}
+
       <div className="grid gap-8 pt-8 md:grid-cols-[1.25fr_0.75fr]">
         <div>
           <p className="mb-3 font-sans text-xs font-black tracking-[0.2em] text-[var(--accent-color)]">

@@ -50,31 +50,33 @@ export default function WorkCard({ project }: WorkCardProps) {
       <p className="mb-6 mt-0 font-sans text-base leading-relaxed text-[var(--text-color)]">
         {project.description}
       </p>
-      <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-5">
-        <div className="flex flex-wrap gap-2">
-          {project.technologies.map((technology) => (
-            <span
-              key={technology}
-              className="border-2 border-[var(--border-color)] bg-[var(--surface-color)] px-2.5 py-1 font-sans text-xs font-black tracking-wider text-[var(--text-color)]"
-            >
-              [{technology}]
-            </span>
-          ))}
-        </div>
-        <div className="flex items-center justify-between gap-3 sm:contents">
+
+      {/* Tags: sempre la propria riga, va a capo liberamente */}
+      <div className="mb-5 flex flex-wrap gap-2">
+        {project.technologies.map((technology) => (
           <span
-            className={`flex items-center gap-2 border-2 border-[var(--border-color)] px-2.5 py-1 font-sans text-xs font-black tracking-wider sm:hidden ${statusClasses}`}
+            key={technology}
+            className="border-2 border-[var(--border-color)] bg-[var(--surface-color)] px-2.5 py-1 font-sans text-xs font-black tracking-wider text-[var(--text-color)]"
           >
-            <span className="size-2 rounded-full bg-white" />
-            {project.status}
+            [{technology}]
           </span>
-          <Link
-            to={`/works/${project.id}`}
-            className="inline-flex items-center gap-2 border-2 border-[var(--border-color)] bg-[var(--text-color)] px-3 py-2 font-sans text-xs font-black tracking-wider text-[var(--on-ink-color)] no-underline shadow-[3px_3px_0px_var(--shadow-color)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_var(--shadow-color)]"
-          >
-            OPEN PROJECT <ArrowUpRight size={16} strokeWidth={2.75} />
-          </Link>
-        </div>
+        ))}
+      </div>
+
+      {/* Azioni: sempre riga propria, sotto ai tag, allineata a destra su desktop */}
+      <div className="flex items-center justify-between gap-3 sm:justify-end">
+        <span
+          className={`flex items-center gap-2 border-2 border-[var(--border-color)] px-2.5 py-1 font-sans text-xs font-black tracking-wider sm:hidden ${statusClasses}`}
+        >
+          <span className="size-2 rounded-full bg-white" />
+          {project.status}
+        </span>
+        <Link
+          to={`/works/${project.id}`}
+          className="inline-flex items-center gap-2 border-2 border-[var(--border-color)] bg-[var(--text-color)] px-3 py-2 font-sans text-xs font-black tracking-wider text-[var(--on-ink-color)] no-underline shadow-[3px_3px_0px_var(--shadow-color)] transition-all duration-150 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_var(--shadow-color)]"
+        >
+          OPEN PROJECT <ArrowUpRight size={16} strokeWidth={2.75} />
+        </Link>
       </div>
     </article>
   );

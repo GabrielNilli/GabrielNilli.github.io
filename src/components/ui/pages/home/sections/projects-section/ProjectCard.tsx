@@ -12,6 +12,7 @@ interface ProjectCardProps {
   description: string;
   tags?: string[];
   icon?: LucideIcon;
+  image?: string; // se presente, sostituisce l'icona come cover
   accent?: boolean;
   href?: string;
 }
@@ -24,6 +25,7 @@ export default function ProjectCard({
   description,
   tags = [],
   icon: Icon,
+  image,
   accent = false,
   href,
 }: ProjectCardProps) {
@@ -32,31 +34,40 @@ export default function ProjectCard({
     border-[3px] border-[var(--border-color)] bg-[var(--surface-color)]
     shadow-[6px_6px_0px_var(--shadow-color)]
     transition-all duration-[120ms] ease-out
+    ${
+      href
+        ? "cursor-pointer hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[2px_2px_0px_var(--shadow-color)]"
+        : "cursor-default opacity-100"
+    }
   `;
 
   const content = (
     <>
-      {/* Icon */}
+      {/* Cover image OR icon */}
       <div
         className={`
           flex h-[100px] w-[100px] min-w-[100px] flex-shrink-0 items-center
-          justify-center self-start border-2 border-[var(--border-color)]
+          justify-center self-start overflow-hidden border-2 border-[var(--border-color)]
           shadow-[3px_3px_0px_var(--shadow-color)]
           sm:h-[150px] sm:w-[150px] sm:min-w-[150px]
-          ${accent ? "bg-[var(--accent-color)]" : "bg-[var(--surface-muted-color)]"}
+          ${accent && !image ? "bg-[var(--accent-color)]" : "bg-[var(--surface-muted-color)]"}
         `}
       >
-        {Icon && (
-          <Icon
-            size={28}
-            strokeWidth={2.25}
-            className={accent ? "text-white" : "text-[var(--text-color)]"}
-          />
+        {image ? (
+          <img src={image} alt="" className="h-full w-full object-cover" />
+        ) : (
+          Icon && (
+            <Icon
+              size={28}
+              strokeWidth={2.25}
+              className={accent ? "text-white" : "text-[var(--text-color)]"}
+            />
+          )
         )}
       </div>
 
       {/* Content column: title, description, tags */}
-      <div className="flex flex-1 flex-col items-start gap-2 text-start min-w-0">
+      <div className="flex min-w-0 flex-1 flex-col items-start gap-2 text-start">
         <h3 className="m-0 font-sans text-xl font-extrabold leading-tight text-[var(--text-color)] sm:text-2xl">
           {title}
         </h3>

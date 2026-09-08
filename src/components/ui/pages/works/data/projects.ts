@@ -1,3 +1,10 @@
+import KnucleBonesCover from "@/images/projects/knucklebones/KnucleBonesCover.webp";
+import KnucleBonesRules from "@/images/projects/knucklebones/KnucleBonesRules.webp";
+import KnucleBonesGame from "@/images/projects/knucklebones/KnucleBonesGame.webp";
+import KnucleBonesCoinToss from "@/images/projects/knucklebones/KnucleBonesCoinToss.webp";
+import TrophyLabGames from "@/images/projects/trophy-lab/TrophyLabGames.png";
+import TrophyLabAchievements from "@/images/projects/trophy-lab/TrophyLabAchievements.png";
+
 export type ProjectCategory = "WEB" | "APPS" | "SYSTEMS";
 export type ProjectStatus = "ACTIVE" | "COMPLETED";
 export type ProjectScope = "PROFESSIONAL" | "PERSONAL";
@@ -14,6 +21,7 @@ export interface Project {
   technologies: string[];
   highlights: string[];
   liveUrl?: string;
+  gallery?: { src: string; alt: string }[];
 }
 
 export const projects: Project[] = [
@@ -135,6 +143,16 @@ export const projects: Project[] = [
       "Mobile-friendly opening of YouTube guides.",
     ],
     liveUrl: "https://steamtrophiesapp.onrender.com",
+    gallery: [
+      {
+        src: TrophyLabGames,
+        alt: "Trophy Lab games library, sorted by playtime",
+      },
+      {
+        src: TrophyLabAchievements,
+        alt: "Trophy Lab achievements list, locked and unlocked",
+      },
+    ],
   },
   {
     id: "knucklebones",
@@ -154,6 +172,12 @@ export const projects: Project[] = [
       "Designed primarily for mobile and fully responsive on desktop.",
     ],
     liveUrl: "https://knucklebones-rasx.onrender.com",
+    gallery: [
+      { src: KnucleBonesCover, alt: "Knucklebones title screen" },
+      { src: KnucleBonesRules, alt: "Knucklebones how-to-play rules screen" },
+      { src: KnucleBonesGame, alt: "Knucklebones gameplay board" },
+      { src: KnucleBonesCoinToss, alt: "Knucklebones coin toss screen" },
+    ],
   },
   {
     id: "scandex",
