@@ -15,7 +15,9 @@ body {
   height: 100%;
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 150ms ease, color 150ms ease;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
 }
 
 :root {
@@ -100,5 +102,77 @@ body {
       width: 222.223%;
       transform: scale(0.45);
     }
+  }
+}
+
+/* =================================
+   CUSTOM BRUTALIST CURSORS
+   ================================= */
+@media (pointer: fine) {
+  /* Light Theme (default) */
+  html,
+  body {
+    cursor:
+      url("/cursors/cursor-default.svg") 4 0,
+      auto;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  label[for],
+  select,
+  .cursor-pointer {
+    cursor:
+      url("/cursors/cursor-pointer.svg") 5 0,
+      pointer !important;
+  }
+
+  .cursor-default {
+    cursor:
+      url("/cursors/cursor-default.svg") 4 0,
+      auto !important;
+  }
+
+  /* Dark Theme */
+  :root[data-theme="dark"] html,
+  :root[data-theme="dark"] body {
+    cursor:
+      url("/cursors/cursor-default-dark.svg") 4 0,
+      auto;
+  }
+
+  :root[data-theme="dark"] a,
+  :root[data-theme="dark"] button,
+  :root[data-theme="dark"] [role="button"],
+  :root[data-theme="dark"] input[type="submit"],
+  :root[data-theme="dark"] input[type="button"],
+  :root[data-theme="dark"] input[type="reset"],
+  :root[data-theme="dark"] label[for],
+  :root[data-theme="dark"] select,
+  :root[data-theme="dark"] .cursor-pointer {
+    cursor:
+      url("/cursors/cursor-pointer-dark.svg") 5 0,
+      pointer !important;
+  }
+
+  :root[data-theme="dark"] .cursor-default {
+    cursor:
+      url("/cursors/cursor-default-dark.svg") 4 0,
+      auto !important;
+  }
+
+  /* Disabled state protection */
+  button:disabled,
+  input:disabled,
+  select:disabled,
+  textarea:disabled,
+  [disabled],
+  [aria-disabled="true"],
+  .cursor-not-allowed {
+    cursor: not-allowed !important;
   }
 }
