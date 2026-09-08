@@ -1,6 +1,7 @@
 // =================================
 //  IMPORTS
 // =================================
+import { Link } from "react-router-dom";
 import { LucideIcon } from "lucide-react";
 
 // =================================
@@ -12,6 +13,7 @@ interface ProjectCardProps {
   tags?: string[];
   icon?: LucideIcon;
   accent?: boolean;
+  href?: string;
 }
 
 // =================================
@@ -23,24 +25,24 @@ export default function ProjectCard({
   tags = [],
   icon: Icon,
   accent = false,
+  href,
 }: ProjectCardProps) {
-  return (
-    // Card
-    <button
-      className="
-        w-full box-border p-6 flex gap-4 cursor-default
-        bg-[var(--surface-color)] border-[3px] border-[var(--border-color)] shadow-[6px_6px_0px_var(--shadow-color)]
-        transition-all duration-[120ms] ease-out
-        hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[2px_2px_0px_var(--shadow-color)]
-        cursor-pointer
-      "
-    >
+  const cardClassName = `
+    box-border flex w-full flex-col gap-4 p-6 sm:flex-row
+    border-[3px] border-[var(--border-color)] bg-[var(--surface-color)]
+    shadow-[6px_6px_0px_var(--shadow-color)]
+    transition-all duration-[120ms] ease-out
+  `;
+
+  const content = (
+    <>
       {/* Icon */}
       <div
         className={`
-          w-[150px] h-[150px] min-w-[150px] flex-shrink-0 self-start
-          flex items-center justify-center
-          border-2 border-[var(--border-color)] shadow-[3px_3px_0px_var(--shadow-color)]
+          flex h-[100px] w-[100px] min-w-[100px] flex-shrink-0 items-center
+          justify-center self-start border-2 border-[var(--border-color)]
+          shadow-[3px_3px_0px_var(--shadow-color)]
+          sm:h-[150px] sm:w-[150px] sm:min-w-[150px]
           ${accent ? "bg-[var(--accent-color)]" : "bg-[var(--surface-muted-color)]"}
         `}
       >
@@ -54,24 +56,23 @@ export default function ProjectCard({
       </div>
 
       {/* Content column: title, description, tags */}
-      <div className="flex flex-col items-start gap-2 flex-1 text-start">
-        <h3 className="m-0 text-2xl font-extrabold leading-tight text-[var(--text-color)] font-sans">
+      <div className="flex flex-1 flex-col items-start gap-2 text-start min-w-0">
+        <h3 className="m-0 font-sans text-xl font-extrabold leading-tight text-[var(--text-color)] sm:text-2xl">
           {title}
         </h3>
 
-        <p className="m-0 text-base leading-relaxed text-[var(--text-color)] font-sans">
+        <p className="m-0 font-sans text-base leading-relaxed text-[var(--text-color)]">
           {description}
         </p>
 
         {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-auto">
+          <div className="mt-auto flex flex-wrap gap-2">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="
-                  bg-[var(--surface-muted-color)] border-2 border-[var(--border-color)] shadow-[2px_2px_0px_var(--shadow-color)]
-                  px-3 py-1 text-sm font-bold tracking-wide uppercase text-[var(--text-color)] font-sans
-                "
+                className="border-2 border-[var(--border-color)] bg-[var(--surface-muted-color)]
+                           px-3 py-1 font-sans text-sm font-bold uppercase tracking-wide
+                           text-[var(--text-color)] shadow-[2px_2px_0px_var(--shadow-color)]"
               >
                 {tag}
               </span>
@@ -79,6 +80,19 @@ export default function ProjectCard({
           </div>
         )}
       </div>
-    </button>
+    </>
   );
+
+  // =================================
+  //  RENDER
+  // =================================
+  if (href) {
+    return (
+      <Link to={href} className={cardClassName}>
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className={cardClassName}>{content}</div>;
 }

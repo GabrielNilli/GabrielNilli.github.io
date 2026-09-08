@@ -2,11 +2,13 @@
 //  IMPORTS
 // =================================
 import { NavLink } from "react-router-dom";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Download } from "lucide-react";
 
 import { navLinks } from "./navLinks";
 
 import { availabilityStatus } from "./pages/contact/data/contact";
+
+import BasePortfolio from "./../../files/base-portfolio/base-portfolio.pdf";
 
 // =================================
 //  COMPONENT
@@ -27,18 +29,32 @@ export default function MobileNav({ theme, onThemeToggle }: MobileNavProps) {
         <p className="m-0 font-sans text-xl font-black uppercase leading-none tracking-tight text-[var(--text-color)]">
           Gabriel <span className="text-[var(--accent-color)]">Nilli</span>
         </p>
-        <button
-          type="button"
-          onClick={onThemeToggle}
-          aria-label="Change theme"
-          className="flex size-10 shrink-0 cursor-pointer items-center justify-center border-2 border-[var(--border-color)] bg-[var(--surface-color)] text-[var(--text-color)] shadow-[3px_3px_0px_var(--shadow-color)] transition-all duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--shadow-color)]"
-        >
-          {theme === "light" ? (
-            <Moon size={18} aria-hidden="true" />
-          ) : (
-            <Sun size={18} aria-hidden="true" />
-          )}
-        </button>
+
+        <div className="flex items-center gap-2">
+          <a
+            href={BasePortfolio}
+            download="Gabriel Nilli Portfolio"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Download portfolio"
+            className="flex size-10 shrink-0 cursor-pointer items-center justify-center border-2 border-[var(--border-color)] bg-[var(--accent-color)] text-white shadow-[3px_3px_0px_var(--shadow-color)] transition-all duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--shadow-color)]"
+          >
+            <Download size={18} aria-hidden="true" />
+          </a>
+
+          <button
+            type="button"
+            onClick={onThemeToggle}
+            aria-label="Change theme"
+            className="flex size-10 shrink-0 cursor-pointer items-center justify-center border-2 border-[var(--border-color)] bg-[var(--surface-color)] text-[var(--text-color)] shadow-[3px_3px_0px_var(--shadow-color)] transition-all duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_var(--shadow-color)]"
+          >
+            {theme === "light" ? (
+              <Moon size={18} aria-hidden="true" />
+            ) : (
+              <Sun size={18} aria-hidden="true" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Sub row */}

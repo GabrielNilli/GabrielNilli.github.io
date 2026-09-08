@@ -14,6 +14,7 @@ interface Project {
   description: string;
   icon: LucideIcon;
   tags: string[];
+  href?: string;
 }
 
 // =================================
@@ -26,6 +27,7 @@ const currentProjects: Project[] = [
     description: "A small server for my personal project made with a BananaPi.",
     icon: Server,
     tags: ["LINUX", "DOCKER", "SQL"],
+    href: "/works/home-server", // TODO: allinea allo slug reale
   },
   {
     id: 2,
@@ -34,6 +36,7 @@ const currentProjects: Project[] = [
       "A PWA designed to help you out getting every achievements for your Steam games.",
     icon: Trophy,
     tags: ["REACT", "INERTIA", "LARAVEL", "PHP", "API"],
+    href: "/works/trophy-lab",
   },
   {
     id: 3,
@@ -42,6 +45,7 @@ const currentProjects: Project[] = [
       "An app inspired by the in-game dice game of Cult of the Lamb.",
     icon: Dices,
     tags: ["REACT", "TS"],
+    href: "/works/knucklebones",
   },
   {
     id: 4,
@@ -50,6 +54,7 @@ const currentProjects: Project[] = [
       "I have plenty of sources of inspiration that will be added to the projects over time.",
     icon: NotebookPen,
     tags: ["MISTERY", "STAY TUNED"],
+    // niente href: rimane non cliccabile
   },
 ];
 
@@ -69,6 +74,7 @@ export default function ProjectSection() {
           description={project.description}
           tags={project.tags}
           icon={project.icon}
+          href={project.href}
         />
       ))}
     </div>

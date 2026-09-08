@@ -1,20 +1,37 @@
 // =================================
+//  IMPORTS
+// =================================
+import { Link } from "react-router-dom";
+
+// =================================
 //  TYPES
 // =================================
 interface WIPCardProps {
   title: string;
+  href?: string;
 }
 
 // =================================
 //  COMPONENT
 // =================================
-export default function WIPCard({ title }: WIPCardProps) {
-  return (
-    <button
-      className="bg-[var(--surface-muted-color)] border-2 border-[var(--border-color)] shadow-[4px_4px_0px_var(--shadow-color)] px-3 py-1 text-lg font-bold tracking-wide uppercase text-[var(--text-color)] font-sans transition-all duration-[120ms] ease-out
-        hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-[2px_2px_0px_var(--shadow-color)] cursor-pointer items-start text-start"
-    >
-      {title}
-    </button>
-  );
+export default function WIPCard({ title, href }: WIPCardProps) {
+  const cardClassName = `
+    block items-start border-2 border-[var(--border-color)] bg-[var(--surface-muted-color)]
+    px-3 py-1 text-start font-sans text-lg font-bold uppercase tracking-wide
+    text-[var(--text-color)] shadow-[4px_4px_0px_var(--shadow-color)]
+    transition-all duration-[120ms] ease-out
+  `;
+
+  // =================================
+  //  RENDER
+  // =================================
+  if (href) {
+    return (
+      <Link to={href} className={cardClassName}>
+        {title}
+      </Link>
+    );
+  }
+
+  return <div className={cardClassName}>{title}</div>;
 }
